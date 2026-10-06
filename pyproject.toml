@@ -1,0 +1,17 @@
+[project]
+name = "dubuque-street-conditions"
+version = "0.1.0"
+description = "Independent analysis of City of Dubuque street condition ratings (public GIS data)"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "requests>=2.31",
+    "pandas>=2.1",
+    "numpy>=1.26",
+    "pyarrow>=15",
+    "statsmodels>=0.14",
+    "scipy>=1.11",
+    "geopandas>=0.14",
+    "shapely>=2.0",
+    "matplotlib>=3.8",
+    "folium>=0.15",
+]

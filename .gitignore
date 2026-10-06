@@ -1,0 +1,22 @@
+# Raw API pulls are re-fetchable; only the manifest is kept (see data/raw/_manifest.json)
+data/raw/*
+!data/raw/_manifest.json
+
+# Environments
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# OS / editor / notebook noise
+.DS_Store
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# Credentials — never commit
+.env
+.env.*
+*.pem
+*.key
+credentials*.json
