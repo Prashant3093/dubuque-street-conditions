@@ -2,9 +2,9 @@
 # (uses the uv-managed virtual environment in .venv)
 PY := .venv/bin/python
 
-.PHONY: all env fetch build analyze maps export dashboard clean
+.PHONY: all env fetch build analyze maps export dashboard reports
 
-all: fetch build analyze maps export dashboard
+all: fetch build analyze maps export dashboard reports
 
 env:
 	uv sync
@@ -26,3 +26,6 @@ export:
 
 dashboard:
 	cd src && ../$(PY) dashboard.py
+
+reports:
+	cd src && ../$(PY) write_reports.py
