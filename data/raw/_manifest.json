@@ -1,0 +1,39 @@
+{
+  "pulled_at_utc": "2026-10-06T13:34:55+00:00",
+  "service_url": "https://maps.cityofdubuque.org/arcgisweb/rest/services/Street_Ratings_for_Web/MapServer",
+  "attribution": "City of Dubuque Engineering and Public Works Departments, GIS Office",
+  "service_metadata": {
+    "mapName": "Street Ratings for Web",
+    "copyrightText": "City of Dubuque Engineering and Public Works Departments, GIS Office",
+    "serviceDescription": "<DIV STYLE=\"text-align:Left;font-size:12pt\"><P><SPAN>Street ratings/conditions for the City of Dubuque, IA.</SPAN></P></DIV>",
+    "spatialReference_native": {
+      "wkid": 102675,
+      "latestWkid": 3417,
+      "xyTolerance": 0.003280833333333333,
+      "zTolerance": 0.001,
+      "mTolerance": 0.001,
+      "falseX": -115419000,
+      "falseY": -93897600,
+      "xyUnits": 3048.0060960121914,
+      "falseZ": -100000,
+      "zUnits": 10000,
+      "falseM": -100000,
+      "mUnits": 10000
+    }
+  },
+  "files": {
+    "street_ratings.json": {
+      "source": "https://maps.cityofdubuque.org/arcgisweb/rest/services/Street_Ratings_for_Web/MapServer/3",
+      "records_fetched": 3274,
+      "rows_returned_before_dedup": 3274,
+      "records_reported_by_service": 3274
+    },
+    "road_centerlines.geojson": {
+      "source": "https://maps.cityofdubuque.org/arcgisweb/rest/services/Street_Ratings_for_Web/MapServer/2",
+      "outSR": 4326,
+      "records_fetched": 6354,
+      "rows_returned_before_dedup": 6513,
+      "records_reported_by_service": 6354
+    }
+  }
+}
