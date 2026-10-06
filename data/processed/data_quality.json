@@ -1,0 +1,96 @@
+{
+  "ratings_rows": 3274,
+  "centerline_features": 6354,
+  "centerlines_null_clid": 15,
+  "ratings_rows_null_centerline_id": 17,
+  "dup_centerline_groups": 140,
+  "dup_centerline_rows": 297,
+  "dup_groups_with_conflicting_ratings": 0,
+  "centerline_clids_split_into_pieces": 30,
+  "rated_segments": 3100,
+  "rated_segments_matched_to_centerline": 3100,
+  "rated_segments_without_centerline": 0,
+  "centerline_clids_total": 6297,
+  "centerline_clids_without_rating": 3197,
+  "unrated_centerlines_by_city": {
+    "DUBUQUE": 1065,
+    "COUNTY": 972,
+    "PEOSTA": 479,
+    "ASBURY": 264,
+    "DURANGO": 173,
+    "BERNARD": 51,
+    "SHERRILL": 49,
+    "BELLEVUE": 40,
+    "ZWINGLE": 39,
+    "SAGEVILLE": 26,
+    "CENTRALIA": 21,
+    "LA MOTTE": 10,
+    "EPWORTH": 7,
+    "EAST DUBUQUE": 1
+  },
+  "unrated_centerlines_by_maintresp": {
+    "-9": 2655,
+    "-1": 196,
+    "1": 182,
+    "-2": 164
+  },
+  "y2022_non_null": 0,
+  "zero_reasons": {
+    "y2015_not_collected": 2934,
+    "segment_retired": 152,
+    "before_first_rating": 90,
+    "isolated_gap": 20
+  },
+  "y2015_nonzero_values": 101,
+  "y2015_zero_share": 0.9465,
+  "null_ratings_by_year": {
+    "2009": 128,
+    "2010": 116,
+    "2011": 95,
+    "2012": 66,
+    "2013": 64,
+    "2014": 64,
+    "2015": 65,
+    "2021": 6,
+    "2022": 3100
+  },
+  "scope_reasons": {
+    "in_scope": 3069,
+    "retired_segment": 25,
+    "no_usable_2021_rating": 6
+  },
+  "in_scope_by_maintresp": {
+    "1": 3007,
+    "-9": 44,
+    "-1": 18
+  },
+  "in_scope_by_city": {
+    "DUBUQUE": 3046,
+    "COUNTY": 18,
+    "PEOSTA": 4,
+    "ASBURY": 1
+  },
+  "in_scope_segments": 3069,
+  "in_scope_miles": 266.08,
+  "in_scope_lane_miles": 551.95,
+  "in_scope_lanes_imputed": 2878,
+  "in_scope_traffic_count_present": 130,
+  "in_scope_cons_missing": 9,
+  "in_scope_year_missing": 191,
+  "in_scope_width_missing_or_zero": 28,
+  "in_scope_fclass_missing": 36,
+  "in_scope_miles_from_geometry": 0,
+  "in_scope_brick": 13,
+  "cons_values": {
+    "ACC": 2317,
+    "PCC": 677,
+    "ACCoPCC": 41,
+    "ACCPCC": 38,
+    "Brick": 13,
+    "(null)": 11,
+    "ACCoBRICK": 2,
+    "PCCoACC": 1
+  },
+  "segments_identical_rating_every_year": 334,
+  "nonstandard_rating_values": 29
+}
