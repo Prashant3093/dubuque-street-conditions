@@ -7,7 +7,7 @@ An end-to-end analysis of the City of Dubuque's published street condition ratin
 
 ![2021 street condition map](outputs/figures/condition_map_2021.png)
 
-**Explore:** [interactive map](docs/index.html) · [dashboard](docs/dashboard.html) · [one-page findings](outputs/FINDINGS.md) · [full analysis report](outputs/analysis_report.md) · [data-quality report](outputs/data_quality.md)
+**Explore:** [live interactive map](https://prashant3093.github.io/dubuque-street-conditions/) · [live dashboard](https://prashant3093.github.io/dubuque-street-conditions/dashboard.html) · [one-page findings](outputs/FINDINGS.md) · [full analysis report](outputs/analysis_report.md) · [data-quality report](outputs/data_quality.md)
 
 ## What the data shows
 
