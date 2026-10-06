@@ -68,7 +68,9 @@ def build_payload():
             "g": coords(g),
         })
     manifest = json.loads((ROOT / "data" / "raw" / "_manifest.json").read_text())
+    proxy = seg.loc[seg.priority_rank.notna(), "traffic_imputed"].astype(bool).mean()
     return {"years": YEARS, "poor": POOR_THRESHOLD, "segments": rows,
+            "traffic_proxy_share": f"{proxy:.0%}",
             "pulled": manifest["pulled_at_utc"][:10]}
 
 
@@ -180,7 +182,7 @@ footer { color: var(--muted); font-size: 11.5px; margin-top: 18px; }
     <h2>Top 25 by illustrative priority score (within filter)</h2>
     <div class="tablewrap"><table id="prio"></table></div>
     <div class="note">Score = 40% condition + 20% deterioration + 25% traffic + 15% lane-miles. A transparent, re-weightable
-    score for discussion, not a City methodology; 96% of traffic inputs are a functional-class proxy.</div>
+    score for discussion, not a City methodology; __PROXY__ of traffic inputs are a functional-class proxy.</div>
   </div>
 
   <footer>Data: City of Dubuque Engineering and Public Works Departments, GIS Office — "Street Ratings for Web" ArcGIS REST service.
@@ -354,7 +356,8 @@ matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
 def main():
     payload = build_payload()
     html = (TEMPLATE.replace("__DATA__", json.dumps(payload, separators=(",", ":"), allow_nan=False))
-            .replace("__PULLED__", payload["pulled"]))
+            .replace("__PULLED__", payload["pulled"])
+            .replace("__PROXY__", payload["traffic_proxy_share"]))
     out = OUTPUTS / "dashboard.html"
     out.write_text(html)
     DOCS.mkdir(exist_ok=True)

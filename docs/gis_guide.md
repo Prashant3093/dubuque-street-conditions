@@ -87,13 +87,13 @@ What a free **ArcGIS public account** adds:
 - A shareable web map in the City's own ecosystem. Esri is what the Public Works department uses.
 - Direct access to the City's live service alongside your own layers.
 
-Its main limitation is that a public account can only add files of **fewer than 1,000 features** directly to a web map ([Esri support](https://support.esri.com/en-us/knowledge-base/what-are-the-options-to-display-a-shapefile-with-over-1-000012614)). The full 3,069-segment layer is too large, so do this:
+Its main limitation is that a public account can only add files of **fewer than 1,000 features** directly to a web map ([Esri support](https://support.esri.com/en-us/knowledge-base/what-are-the-options-to-display-a-shapefile-with-over-1-000012614)). The full rated network is well over that limit, so do this:
 
 1. Create a public account at <https://www.arcgis.com> (**Sign In → Create a public account**).
 2. Open **Map Viewer → Add → Add layer from URL** and paste the City's own service:
    `https://maps.cityofdubuque.org/arcgisweb/rest/services/Street_Ratings_for_Web/MapServer/2`
    This shows the City's full network, styled live.
-3. Choose **Add → Add layer from file** and upload `data/processed/segments_poor_2021.geojson`, which has 298 features and stays under the limit. Style it by `band_2021` in red, or by `priority_rank`.
+3. Choose **Add → Add layer from file** and upload `data/processed/segments_poor_2021.geojson`, which contains only the Poor-or-worse segments and stays well under the limit. Style it by `band_2021` in red, or by `priority_rank`.
 4. Configure pop-ups to show `StreetName`, `FromStreet`, `ToStreet`, `rating_2021` and `deterioration_rate`.
 5. **Save** the map, then **Share → Everyone**, and link it from the README.
 

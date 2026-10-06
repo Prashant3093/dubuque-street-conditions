@@ -44,7 +44,7 @@ Fastest-declining segments:
 
 - Concrete minus asphalt, mean slope: **+0.36 points/year** (Welch t-test p = 1.21e-65; Mann-Whitney p = 1.09e-84).
 - Adjusted for functional class and years since recorded work (OLS, HC3 robust SEs, n = 2,248): concrete coefficient +0.28 [0.23, 0.33], p = 2.93e-25.
-- **Caveat:** material is not randomly assigned. Concrete is concentrated on arterials and newer reconstructions; asphalt dominates local streets. Traffic counts exist for too few segments to control for load. This is an association, not a material effect.
+- **Caveat:** material is not randomly assigned. Concrete carries more collector/arterial mileage (32% of its miles vs 23% for asphalt) and its last recorded work is older (median 1999 vs 2005). Traffic counts exist for too few segments to control for load. This is an association, not a material effect.
 
 <details><summary>Adjusted model output</summary>
 
@@ -55,7 +55,7 @@ Dep. Variable:            slope_clean   R-squared:                       0.135
 Model:                            OLS   Adj. R-squared:                  0.132
 Method:                 Least Squares   F-statistic:                     109.1
 Date:                Tue, 06 Oct 2026   Prob (F-statistic):          5.18e-154
-Time:                        09:34:01   Log-Likelihood:                -1251.5
+Time:                        09:39:14   Log-Likelihood:                -1251.5
 No. Observations:                2248   AIC:                             2521.
 Df Residuals:                    2239   BIC:                             2572.
 Df Model:                           8                                         

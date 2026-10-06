@@ -279,9 +279,22 @@ def analysis_material(seg, slopes, out):
                f"concrete coefficient {model.params[pcc_term]:+.2f} "
                f"[{model.conf_int().loc[pcc_term, 0]:.2f}, {model.conf_int().loc[pcc_term, 1]:.2f}], "
                f"p = {model.pvalues[pcc_term]:.3g}.")
-    out.append("- **Caveat:** material is not randomly assigned. Concrete is concentrated on arterials and newer "
-               "reconstructions; asphalt dominates local streets. Traffic counts exist for too few segments to "
-               "control for load. This is an association, not a material effect.\n")
+    # How different are the two populations? (quoted in the caveat)
+    pop = seg[seg.in_scope & seg.material.isin(["Asphalt (ACC)", "Concrete (PCC)"])]
+    nonlocal_share = (pop.assign(nonlocal_mi=pop.miles.where(pop.cl_DOT_FClassification.notna()
+                                                             & (pop.cl_DOT_FClassification != "Local"), 0))
+                      .groupby("material")[["nonlocal_mi", "miles"]].sum())
+    nonlocal_share = nonlocal_share.nonlocal_mi / nonlocal_share.miles
+    work_year = pop.groupby("material").Year.median()
+    metric("mat_acc_nonlocal_share", nonlocal_share["Asphalt (ACC)"])
+    metric("mat_pcc_nonlocal_share", nonlocal_share["Concrete (PCC)"])
+    metric("mat_acc_median_work_year", work_year["Asphalt (ACC)"])
+    metric("mat_pcc_median_work_year", work_year["Concrete (PCC)"])
+    out.append(f"- **Caveat:** material is not randomly assigned. Concrete carries more collector/arterial mileage "
+               f"({nonlocal_share['Concrete (PCC)']:.0%} of its miles vs {nonlocal_share['Asphalt (ACC)']:.0%} for asphalt) "
+               f"and its last recorded work is older (median {work_year['Concrete (PCC)']:.0f} vs "
+               f"{work_year['Asphalt (ACC)']:.0f}). Traffic counts exist for too few segments to control for load. "
+               "This is an association, not a material effect.\n")
     out.append("<details><summary>Adjusted model output</summary>\n\n```\n" + model.summary().as_text() + "\n```\n</details>\n")
 
 
@@ -608,6 +621,7 @@ def analysis_kpis(seg, long, out):
         metric(f"kpi_2021_share_miles_{b.lower()}", dist.loc[b, "share_miles"])
         metric(f"kpi_2021_lane_miles_{b.lower()}", dist.loc[b, "lane_miles"])
     metric("kpi_2021_share_miles_poor_or_worse", dist.loc[["Poor", "Failed"], "share_miles"].sum())
+    metric("kpi_2021_miles_poor_or_worse", dist.loc[["Poor", "Failed"], "miles"].sum())
     metric("kpi_2021_network_miles", insc.miles.sum())
     metric("kpi_2021_network_lane_miles", insc.lane_miles.sum())
 

@@ -96,8 +96,8 @@ DIVIDE ( [Miles Poor or Worse], [Rated Miles] )
 
 ```DAX
 Backlog Lane-Miles =
--- Lane-miles at or below the Poor threshold. 94% of segments use an assumed 2 lanes,
--- so treat this as approximate (see dim_segment[lanes_assumed]).
+-- Lane-miles at or below the Poor threshold. Most segments use an assumed 2 lanes,
+-- so treat this as approximate (see the Share Lanes Assumed measure).
 VAR Threshold = [Poor Threshold Value]
 RETURN
     SUMX (
@@ -221,7 +221,7 @@ Use a 16:9 canvas. Each page has a slicer row along the top (60 px tall) with th
 ### Page 2: Deterioration & lifecycle
 
 - **Column chart:** X = `dim_segment[deterioration_rate]` (create bins of 0.25), Y = count of `segment_id`.
-- **Clustered bar:** average `deterioration_rate` by `material_group`, with a caption: *"Association, not a material effect. Concrete is concentrated on arterials and newer reconstructions."*
+- **Clustered bar:** average `deterioration_rate` by `material_group`, with a caption: *"Association, not a material effect. Concrete and asphalt differ in road class and work age; see analysis_report.md."*
 - **Line chart:** X = `fact_ratings[year] - dim_segment[last_work_year]`. Add this calculated column to `fact_ratings`: `Age = fact_ratings[year] - RELATED ( dim_segment[last_work_year] )`. Y = `Simple Avg Rating`, Legend = `material_group`, with a visual filter of Age ≥ 0 and Age ≤ 25.
 - **Table:** the 15 fastest-declining segments (`segment_label`, `material_code`, `deterioration_rate`, `rating_2021`), sorted ascending by `deterioration_rate`.
 
@@ -229,7 +229,7 @@ Use a 16:9 canvas. Each page has a slicer row along the top (60 px tall) with th
 
 - Put the **four weight sliders** from the What-if parameters down the left side.
 - **Table:** `priority_rank`, `Priority Rank (dynamic)`, `segment_label`, `functional_class`, `rating_2021`, `deterioration_rate`, `traffic_estimate`, `traffic_is_proxy`, `lane_miles`, `Priority Score (dynamic)`. Add a Top N filter of 50 by `Priority Score (dynamic)`.
-- Add a text box: *"Illustrative scoring for discussion. Not a City of Dubuque methodology. 96% of traffic values are a functional-class proxy."*
+- Add a text box: *"Illustrative scoring for discussion. Not a City of Dubuque methodology. Most traffic values are a functional-class proxy (see Share Traffic Proxy)."*
 - **Map:** the same as page 1, filtered to the Top 50.
 
 ### Page 4: Data quality
