@@ -55,7 +55,7 @@ Dep. Variable:            slope_clean   R-squared:                       0.135
 Model:                            OLS   Adj. R-squared:                  0.132
 Method:                 Least Squares   F-statistic:                     109.1
 Date:                Tue, 06 Oct 2026   Prob (F-statistic):          5.18e-154
-Time:                        09:25:44   Log-Likelihood:                -1251.5
+Time:                        09:34:01   Log-Likelihood:                -1251.5
 No. Observations:                2248   AIC:                             2521.
 Df Residuals:                    2239   BIC:                             2572.
 Df Model:                           8                                         

@@ -1,0 +1,9 @@
+year,is_trend_year,previous_survey_year,note
+2009,True,,
+2010,True,2009,
+2011,True,2010,
+2012,True,2011,
+2013,True,2012,
+2014,True,2013,
+2015,False,,95% placeholder zeros; excluded from trends
+2021,True,2014,previous survey is 2014 (7-year gap)

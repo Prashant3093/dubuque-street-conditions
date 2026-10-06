@@ -1,0 +1,5 @@
+band,sort_order,min_rating,max_rating,is_poor_or_worse
+Good,1,71,100,False
+Fair,2,56,70,False
+Poor,3,26,55,True
+Failed,4,1,25,True
